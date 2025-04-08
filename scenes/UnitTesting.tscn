@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://00wb13nj0847"]
+
+[node name="ctr2_Unit_Testing" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="vbc2_Action_List" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="hbc2_Actions" type="HBoxContainer" parent="vbc2_Action_List"]
+layout_mode = 2
+
+[node name="btn2_Run_All_Tests" type="Button" parent="vbc2_Action_List/hbc2_Actions"]
+layout_mode = 2
+text = "Run All Tests"
+
+[node name="scc2_List" type="ScrollContainer" parent="vbc2_Action_List"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="vbc2_List" type="VBoxContainer" parent="vbc2_Action_List/scc2_List"]
+layout_mode = 2
