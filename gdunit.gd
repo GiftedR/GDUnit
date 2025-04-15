@@ -1,8 +1,11 @@
 @tool
 extends EditorPlugin
+class_name GDUnit
 
 var dock:Control
 var dockshortcut:Shortcut = Shortcut.new()
+
+const addonpath:String = "res://addons/gdunit/"
 
 func _enter_tree() -> void:
 	var key0 = InputEventKey.new()
@@ -12,10 +15,22 @@ func _enter_tree() -> void:
 	
 	dockshortcut.events = [key0]
 	
-	dock = preload("res://addons/gdunit/scenes/UnitTesting.tscn").instantiate()
+	dock = preload(addonpath + "scenes/UnitTesting.tscn").instantiate()
 	add_control_to_bottom_panel(dock, "Unit Testing", dockshortcut)
 
 
 func _exit_tree() -> void:
 	remove_control_from_bottom_panel(dock)
 	dock.free()
+
+
+func restart_plugin() -> void:
+	print("Restarting GDUnit")
+	EditorInterface.set_plugin_enabled("gdunit", false)
+	
+	EditorInterface.set_plugin_enabled.call_deferred("gdunit", true)
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		if event.keycode == KEY_BACKSLASH && event.pressed && event.alt_pressed:
+			restart_plugin()

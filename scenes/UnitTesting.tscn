@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://00wb13nj0847"]
+[gd_scene load_steps=2 format=3 uid="uid://00wb13nj0847"]
+
+[ext_resource type="Script" path="res://addons/gdunit/scripts/UnitTestingUI.gd" id="1_itjuy"]
 
 [node name="ctr2_Unit_Testing" type="Control"]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_itjuy")
 
 [node name="vbc2_Action_List" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -19,9 +22,31 @@ grow_vertical = 2
 [node name="hbc2_Actions" type="HBoxContainer" parent="vbc2_Action_List"]
 layout_mode = 2
 
+[node name="btn2_Discover_Tests" type="Button" parent="vbc2_Action_List/hbc2_Actions"]
+layout_mode = 2
+text = "Discover Tests"
+
 [node name="btn2_Run_All_Tests" type="Button" parent="vbc2_Action_List/hbc2_Actions"]
 layout_mode = 2
 text = "Run All Tests"
+
+[node name="lbl2_Test_Percentage" type="Label" parent="vbc2_Action_List/hbc2_Actions"]
+layout_mode = 2
+text = "Goal: 100%"
+
+[node name="hsl2_Test_Percentage" type="HSlider" parent="vbc2_Action_List/hbc2_Actions"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 100.0
+tick_count = 99
+ticks_on_borders = true
+
+[node name="rtl2_Test_Results" type="RichTextLabel" parent="vbc2_Action_List"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Total: 0	 [color=red]Failing: 0[/color]	 [color=green]Passing: 0[/color]	 Percentage: [color=green]100%[/color]"
+fit_content = true
 
 [node name="scc2_List" type="ScrollContainer" parent="vbc2_Action_List"]
 layout_mode = 2
@@ -30,3 +55,5 @@ horizontal_scroll_mode = 0
 
 [node name="vbc2_List" type="VBoxContainer" parent="vbc2_Action_List/scc2_List"]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
