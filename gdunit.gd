@@ -5,7 +5,7 @@ class_name GDUnit
 var dock:Control
 var dockshortcut:Shortcut = Shortcut.new()
 
-const addonpath:String = "res://addons/gdunit/"
+const addonpath:String = "res://addons/GDUnit/"
 
 func _enter_tree() -> void:
 	var key0 = InputEventKey.new()
@@ -26,9 +26,9 @@ func _exit_tree() -> void:
 
 func restart_plugin() -> void:
 	print("Restarting GDUnit")
-	EditorInterface.set_plugin_enabled("gdunit", false)
+	EditorInterface.set_plugin_enabled("GDUnit", false)
 	
-	EditorInterface.set_plugin_enabled.call_deferred("gdunit", true)
+	EditorInterface.set_plugin_enabled.call_deferred("GDUnit", true)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:

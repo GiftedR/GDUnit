@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://00wb13nj0847"]
 
-[ext_resource type="Script" path="res://addons/gdunit/scripts/UnitTestingUI.gd" id="1_itjuy"]
+[ext_resource type="Script" uid="uid://dmnken46why6r" path="res://addons/GDUnit/scripts/UnitTestingUI.gd" id="1_kjhn0"]
 
 [node name="ctr2_Unit_Testing" type="Control"]
 layout_mode = 3
@@ -9,7 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_itjuy")
+script = ExtResource("1_kjhn0")
 
 [node name="vbc2_Action_List" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -30,30 +30,48 @@ text = "Discover Tests"
 layout_mode = 2
 text = "Run All Tests"
 
-[node name="lbl2_Test_Percentage" type="Label" parent="vbc2_Action_List/hbc2_Actions"]
-layout_mode = 2
-text = "Goal: 100%"
-
-[node name="hsl2_Test_Percentage" type="HSlider" parent="vbc2_Action_List/hbc2_Actions"]
+[node name="tbb2_Test_Results" type="TabBar" parent="vbc2_Action_List/hbc2_Actions"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 4
-value = 100.0
-tick_count = 99
-ticks_on_borders = true
+current_tab = 0
+tab_count = 4
+tab_0/title = "Total: 0"
+tab_0/tooltip = "Total Tests"
+tab_1/title = "Failing: 0"
+tab_1/tooltip = "Failing Tests"
+tab_2/title = "Passing: 0"
+tab_2/tooltip = "Passing Tests"
+tab_3/title = "Percentage: 100%"
+tab_3/tooltip = "Passing Percentage"
 
-[node name="rtl2_Test_Results" type="RichTextLabel" parent="vbc2_Action_List"]
+[node name="plc2_Results" type="PanelContainer" parent="vbc2_Action_List"]
 layout_mode = 2
-bbcode_enabled = true
-text = "Total: 0	 [color=red]Failing: 0[/color]	 [color=green]Passing: 0[/color]	 Percentage: [color=green]100%[/color]"
-fit_content = true
+size_flags_vertical = 3
 
-[node name="scc2_List" type="ScrollContainer" parent="vbc2_Action_List"]
+[node name="scc2_Results" type="ScrollContainer" parent="vbc2_Action_List/plc2_Results"]
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="vbc2_List" type="VBoxContainer" parent="vbc2_Action_List/scc2_List"]
+[node name="vbc2_Total" type="VBoxContainer" parent="vbc2_Action_List/plc2_Results/scc2_Results"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="vbc2_Failing" type="VBoxContainer" parent="vbc2_Action_List/plc2_Results/scc2_Results"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="vbc2_Passing" type="VBoxContainer" parent="vbc2_Action_List/plc2_Results/scc2_Results"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="vbc2_Percentage" type="VBoxContainer" parent="vbc2_Action_List/plc2_Results/scc2_Results"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
